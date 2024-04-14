@@ -1,0 +1,24 @@
+.goals2-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:90vh;
+    text-align: left;
+    padding:10px;
+}
+.goals2-text{
+    color:#787878;
+    font-weight:500;
+}
+.skip-text{
+    color:#9FB2FF;
+}
+.skip-header{
+    width:90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding:10px;
+    size:16px;
+
+}

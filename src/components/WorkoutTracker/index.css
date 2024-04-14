@@ -1,0 +1,122 @@
+.upcoming-workouts ul{
+    list-style:none;
+    padding:2px;
+}
+.workout-tracker{
+    padding:5px;
+}
+.upcoming-workouts {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+.upcoming-workouts ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: -4px 8px 25px -8px #00000026;
+    border-radius:10px;
+    height:66px;
+    width:100%;
+}
+header{
+    display: flex;
+    align-items: center;
+}
+.workout-details{
+    display:flex;
+    flex-direction:column;
+    
+}
+.workout-details-time{
+    color:#7F7F7F;
+}
+.upcoming-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.summary{
+    display: flex;
+    background: linear-gradient(90.07deg, rgba(129, 157, 255, 0.28) 5.94%, rgba(16, 16, 16, 0) 76.45%);
+    border-radius: 10px;
+    width:90%;
+    align-items: center;
+    margin-left:4%;
+    padding:7px;
+    box-sizing: border-box;
+
+}
+.summary img{ 
+    height:30px;
+    width:60px;
+    object-fit: contain;
+}
+.what-to-train{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.search-icon{
+    height:63px !important;
+    width:63px !important;
+    border-radius:50% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90.95deg, #DEE5FF 0.79%, #809AFF 99.18%);
+    position: fixed;
+    bottom: 3%;
+    left:41vw;
+}
+
+.what-to-train-container{
+    padding-left:13px;
+    height:130px;
+    display: flex;
+    background: #8CB1FF99;
+    justify-content: space-around;
+    align-items:center;
+    border-radius:8px;
+    margin-bottom:12vh;
+}
+.what-to-train-container img{ 
+    height:83%;
+    width:24%;
+    object-fit: contain;
+}
+.what-to-train p{ 
+    margin:2px;
+
+}
+.chart{
+    width:90%;
+    height:22vh;
+    object-fit: contain;
+}
+footer{
+    position:fixed;
+    bottom:0;
+    background-color: #fff;
+}
+
+.toggle-bar{
+    background-color:#8099FF;
+    height:32px;
+    top:10px;
+    width:62px;
+    border-radius:52px;
+    display:flex;
+    padding:5px;
+    padding-top:3px;
+    box-sizing: border-box;
+}
+.toggle-circle{
+    height:24px;
+    width:24px;
+    background-color:white;
+    position:absolute;
+    z-index:2;
+    border-radius:50%;
+}
