@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import './index.css';
 
 const GoalTracker=()=>{
-    const [selectedGoal, setSelectedGoal] = useState(''); // State for selected goal
+    // const [selectedGoal, setSelectedGoal] = useState(''); // State for selected goal
 
     const goals = [
       { name: 'Weight Loss', icon: 'weight-loss.svg' },  // Replace with icon paths or components
@@ -12,10 +13,11 @@ const GoalTracker=()=>{
       { name: 'Event-Specific Training', icon: 'event-training.svg' },
       { name: 'Mindfulness and Mental Health', icon: 'mindfulness.svg' },
     ];
+    const navigate=useNavigate();
 
-    const handleGoalSelection = (goalName) => {
-      setSelectedGoal(goalName);
-    };
+    // const handleGoalSelection = (goalName) => {
+    //   setSelectedGoal(goalName);
+    // };
 
     return(
         <div className="goal-tracker">
@@ -28,7 +30,7 @@ const GoalTracker=()=>{
               </li>
             ))}
           </ul>
-          <button className="confirm-btn" disabled={!selectedGoal}>
+          <button className="confirm-btn" onClick={()=>{navigate('/workout-tracker')}}>
             Confirm
           </button>
         
