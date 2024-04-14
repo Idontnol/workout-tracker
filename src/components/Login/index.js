@@ -24,7 +24,7 @@ const Login=()=>{
         console.log(userCredential);
         const user=userCredential.user;
         setUser(user);
-        navigate('/goal-tracker');
+        navigate('/goals');
 
       // Optionally store user data in local storage or a database
       localStorage.setItem('userData', JSON.stringify(user)); 
@@ -42,7 +42,7 @@ const Login=()=>{
           const credential = GoogleAuthProvider.credentialFromResult(result);
           console.log(credential);
           const user = result.user;
-          navigate('/goal-tracker'); 
+          navigate('/goals'); 
 
           localStorage.setItem('userData', JSON.stringify(user)); 
           setUser(user);
@@ -60,7 +60,7 @@ const Login=()=>{
           const credential = FacebookAuthProvider.credentialFromResult(result);
           console.log(credential);
           const user = result.user;
-          navigate('/goal-tracker'); 
+          navigate('/goals'); 
           localStorage.setItem('userData', JSON.stringify(user));
           setUser(user);
         } catch (error) {
@@ -91,14 +91,15 @@ const Login=()=>{
                 <button className='signInBtn' type="submit">Sign in</button>
             </form>
             <p className=''>or</p>
-            <p> <span className=''>Don't have an account yet? </span><a href="#f" className='' onClick={()=>{navigate('/signup')}}>Create an account</a></p>
-            <div>
-          <button onClick={handleGoogleLogin} className='socialmedia-btn'>
+            <button onClick={handleGoogleLogin} className='socialmedia-btn'>
             <img src="google.png" className='' alt="Google" />
           </button>
           <button onClick={handleFacebookLogin} className='socialmedia-btn'>
             <img src="facebook.png" className='' alt="facebook" />
           </button>
+            <p> <span className=''>Don't have an account yet? </span><a href="#f" className='' onClick={()=>{navigate('/signup')}}>Create an account</a></p>
+            <div>
+          
         </div>
         </div>
     )

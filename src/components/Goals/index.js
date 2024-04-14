@@ -7,7 +7,7 @@ const Goals=()=>{
     return(
         <div className=''>
             <span className='skip-header'>
-                <a href="#ef" className='skip-text'>Skip</a>
+                <a href="#ef" className='skip-text' onClick={()=>{navigate('/goal-tracker')}}>Skip</a>
             </span>
             
             <div className='goals2-container'>
@@ -16,7 +16,7 @@ const Goals=()=>{
                 <p className='goals2-text'>Don’t worry if you have trouble determining your goals, We can help you determine your goals and track your goals</p>
 
             </div>
-            <img src="next-page.png" alt="next-page" onClick={()=>{navigate('/signup')}}  className='next-page-btn'/>
+            <img src="next-page.png" alt="next-page" onClick={()=>{navigate('/getburn')}}  className='next-page-btn'/>
         </div>
     )
 }

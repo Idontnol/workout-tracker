@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route exact path="/" element={<Signup/>} />
           <Route exact path="/signin" element={<Login/>} />
           <Route exact path="/signup" element={<Signup/>} />
           <Route exact path="/goals" element={<Goals/>} />
@@ -21,7 +22,7 @@ function App() {
           <Route exact path="/workout-tracker" element={<WorkoutTracker/>} />
           <Route exact path="/workout-schedule" element={<WorkoutSchedule/>} />
          
-          <Route exact path="*" element={<Signup/>} />
+          <Route path="*" element={<Signup/>} />
         </Routes>
       </BrowserRouter>
     </div>

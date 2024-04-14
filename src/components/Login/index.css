@@ -10,6 +10,7 @@
         font-weight:600;
         font-size:16px;
         font-family:'Montserrat';
+        margin-top:30vh;
     }
     .signInBtn:hover{
         background-color:;
@@ -51,6 +52,15 @@
         flex-direction:column;
         align-items:center;
         gap:20px;
+    }
+    .socialmedia-btn{
+        background-color:transparent ;
+        border-color:#7F7F7F;
+        border-radius:10px;
+        height:45px;
+        width:45px;
+        margin-right:25px;
+        cursor:pointer;
     }
     
 }

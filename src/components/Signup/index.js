@@ -42,7 +42,7 @@ const Signup=()=>{
           const credential = GoogleAuthProvider.credentialFromResult(result);
           console.log(credential);
           const user = result.user;
-          navigate('/goal-tracker'); 
+          navigate('/goals'); 
 
           localStorage.setItem('userData', JSON.stringify(user)); 
           setUser(user);
@@ -60,7 +60,7 @@ const Signup=()=>{
           const credential = FacebookAuthProvider.credentialFromResult(result);
           console.log(credential);
           const user = result.user;
-          navigate('/goal-tracker'); 
+          navigate('/goals'); 
           localStorage.setItem('userData', JSON.stringify(user)); 
           setUser(user);
         } catch (error) {
@@ -83,13 +83,14 @@ const Signup=()=>{
                 <button className='signUpBtn' type="submit">Create an account</button>
             </form>
             <p className=''>or</p>
-            <p> <span className=''>Already have an account? </span><a href="#f" className='' onClick={()=>{navigate('/signin')}}>Login</a></p>
             <button onClick={handleGoogleLogin} className='socialmedia-btn'>
             <img src="google.png" className='' alt="Google" />
           </button>
           <button onClick={handleFacebookLogin} className='socialmedia-btn'>
             <img src="facebook.png" className='' alt="facebook" />
           </button>
+            <p> <span className=''>Already have an account? </span><a href="#f" className='' onClick={()=>{navigate('/signin')}}>Login</a></p>
+            
         </div>
     )
 }
