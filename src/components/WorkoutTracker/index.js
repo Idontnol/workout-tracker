@@ -55,7 +55,7 @@ const WorkoutTracker=()=>{
               <img src={workout.image} alt={workout.image}/>
               <span className="workout-details">
                 <span className="workout-name">{workout.name}</span>
-                <span className='workout-details-time'>{workout.day }{workout.time}</span>
+                <span className='workout-details-time'>{workout.day}{" "}{workout.time}</span>
               </span>
               <span className='toggle-bar' style={{display:'flex',justifyContent:toggle?'flex-end':'flex-start'}} onClick={()=>{setToggle(t=>!t)}}>
                 <span className='toggle-circle'></span>

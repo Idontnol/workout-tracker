@@ -10,7 +10,7 @@
         font-weight:600;
         font-size:16px;
         font-family:'Montserrat';
-        margin-top:30vh;
+        margin-top:26vh;
     }
     .signInBtn:hover{
         background-color:;
@@ -29,7 +29,8 @@
         border:none;
         display:flex;
         /* border: 1px solid #ccc; */
-        width:90vw;
+        width:93vw;
+        padding-right:3px;
     }
     .password-container input{
         border:none;
@@ -39,6 +40,9 @@
     .forgot-text{
         color:#7F7F7F;
         text-decoration:underline;
+        display: flex;
+        justify-content: flex-start;
+        width:92vw;
     }
     .input-type{
         height:40px;

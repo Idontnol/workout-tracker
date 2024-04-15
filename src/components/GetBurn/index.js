@@ -11,7 +11,7 @@ const GetBurn=()=>{
             </span>
             <div className='goals2-container'>
                 <img src="cycling.png" className='' alt="" />
-                <h1 className=''>Get Burn</h1>
+                <h2 className=''>Get Burn</h2>
                 <p className=''>Let’s keep burning to achieve your goals, it hurts only temporarily, if you give up now you will be in pain forever</p>
             </div>
             <img src="next-page.png" alt="next-page" onClick={()=>{navigate('/goal-tracker')}} className='next-page-btn'/>

@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import { auth,googleAuth,facebookAuth} from '../../config/firebase'
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { signInWithPopup, onAuthStateChanged ,signInWithEmailAndPassword} from 'firebase/auth';
+import { signInWithRedirect, onAuthStateChanged ,signInWithEmailAndPassword} from 'firebase/auth';
 import { HiMiniEye } from "react-icons/hi2";
 import { HiEyeSlash } from "react-icons/hi2";
 import  {useNavigate} from 'react-router-dom'
@@ -11,13 +11,49 @@ const Login=()=>{
     const [userEmail,setUserEmail]=useState('');
     const [password,setPassword]=useState("");
     const [showPassword,setShowPassword]=useState(false);
+    const [error,setError]=useState('');
     // const [auth, setAuth] = useState(getAuth(app));
   const [user, setUser] = useState(null);
 
     const navigate =useNavigate();
 
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+        setUser(user);
+        if (user) {
+          navigate('/goals'); // Navigate only if a user is logged in
+        }
+      });
+    
+      // Return the unsubscribe function for cleanup
+      return () => unsubscribe();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); 
+    
+    const getErrorMessage = (error) => {
+      console.log(error,"checked");
+      const errorMap = {
+        'auth/email-already-in-use': 'Email address already in use. Please try a different email.',
+        'auth/invalid-email': 'Invalid email address. Please enter a valid email format.',
+        'auth/weak-password': 'Password is too weak. Please choose a stronger password.',
+        'auth/wrong-password': 'Incorrect email or password. Please try again.',
+        'auth/user-not-found': 'User not found. Please check your email address.',
+        // Add more error codes and messages as needed
+      };
+    
+      return errorMap[error.code] || 'An error occurred at signin. Please check details carefully.';
+    };
+
     const signIn=async(e)=>{
         e.preventDefault();
+        if(!userEmail){
+          setError("email is missing");
+          return;
+        }
+        else if(!password){
+          setError("password is missing");
+          return;
+        }
         console.log({userEmail,password});
         try{
         const userCredential=await signInWithEmailAndPassword(auth,userEmail,password);
@@ -31,6 +67,8 @@ const Login=()=>{
         }
         catch(e){
           console.log(e);
+          const errorMessage = getErrorMessage(e);
+          setError(errorMessage);
         }
         setUserEmail("");
         setPassword("");
@@ -38,9 +76,9 @@ const Login=()=>{
 
     const handleGoogleLogin = async () => {
         try {
-          const result = await signInWithPopup(auth, googleAuth);
+          const result = await signInWithRedirect(auth, googleAuth);
           const credential = GoogleAuthProvider.credentialFromResult(result);
-          console.log(credential);
+          console.log(credential,credential.accessToken);
           const user = result.user;
           navigate('/goals'); 
 
@@ -56,7 +94,7 @@ const Login=()=>{
       const handleFacebookLogin = async () => {
 
         try {
-          const result = await signInWithPopup(auth, facebookAuth);
+          const result = await signInWithRedirect(auth, facebookAuth);
           const credential = FacebookAuthProvider.credentialFromResult(result);
           console.log(credential);
           const user = result.user;
@@ -76,9 +114,26 @@ const Login=()=>{
         return unsubscribe;
       }, []);
 
+      useEffect(() => {
+        // Check if an error exists
+        if (error) {
+          // Set a timeout to clear the error after 6 seconds
+          const timeoutId = setTimeout(() => {
+            setError(""); // Clear the error message
+          }, 6000); // Timeout in milliseconds (6 seconds)
+      
+          // Return a cleanup function to clear the timeout when the component unmounts
+          return () => clearTimeout(timeoutId);
+        }
+      
+        // If no error exists, return an empty cleanup function
+        return () => {}; // Empty cleanup function if no error
+      }, [error]); 
+
     return(
         <div className=''>
             <h2 className=''>Welcome Back</h2>
+            {error && <span className='' style={{display:'flex','justifyContent':'flex-end'}}><p style={{color:"red"}}>*{error}</p></span>}
             <form className='signin-form' onSubmit={signIn}>
                 <input type="" placeholder='Email' className='input-type' value={userEmail} onChange={(e)=>{setUserEmail(e.target.value)}}/>
                 <span className='password-container' >
@@ -87,7 +142,8 @@ const Login=()=>{
                             {showPassword?<HiEyeSlash />: <HiMiniEye />}
                         </button>
                 </span>
-                <p className='forgot-text'>Forgot Your Password?</p>
+                <span className='forgot-text'><p >Forgot Your Password?</p></span>
+                
                 <button className='signInBtn' type="submit">Sign in</button>
             </form>
             <p className=''>or</p>

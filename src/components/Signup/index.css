@@ -3,6 +3,7 @@
     flex-direction: column;
     text-align: center;
     gap:20px;
+    padding-left:16px;
 }
 .terms-container{
     display: flex;
@@ -18,10 +19,13 @@
     font-weight:600;
     font-size:16px;
     font-family:'Montserrat';
-    margin-top:13vh;
+    margin-top:4vh;
 }
 .signUpBtn:hover{
     background-color:;
     cursor: pointer;
     box-shadow:0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.google-extra{
+    margin-left:7vw;
 }

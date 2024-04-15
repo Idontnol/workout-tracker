@@ -12,7 +12,7 @@ const Goals=()=>{
             
             <div className='goals2-container'>
                 <img src="running.png" className='' alt="" />
-                <h1 className=''>Track Your Goal</h1>
+                <h2 className=''>Track Your Goal</h2>
                 <p className='goals2-text'>Don’t worry if you have trouble determining your goals, We can help you determine your goals and track your goals</p>
 
             </div>
