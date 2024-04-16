@@ -75,7 +75,7 @@ const WorkoutTracker=()=>{
       </div>
       <footer className=''>
           <AiOutlineHome className='iconu' color="#7F7F7F" />      
-          <TbPhotoSearch className='iconu' color="#829DFF" />
+          <TbPhotoSearch className='iconu' color="#829DFF" onClick={()=>{navigate('/workout-schedule')}} />
           <span className='search-icon'>
            <IoSearch className='iconu' color="white"  />
           </span>

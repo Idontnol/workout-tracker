@@ -24,17 +24,15 @@ const GoalTracker=()=>{
           <h2 className=''>What are your goals?</h2>
           <ul className=''>
             {goals.map((goal) => (
-              <li key={goal.name} className=''>
+              <label key={goal.name} className='' htmlFor={`checkbox-${goal.name}`}>
                   <span>{goal.name}</span>
-                  <input type="checkbox" className='style-check' />
-              </li>
+                  <input type="checkbox" className='style-check' id={`checkbox-${goal.name}`} />
+              </label>
             ))}
           </ul>
           <button className="confirm-btn" onClick={()=>{navigate('/workout-tracker')}}>
             Confirm
           </button>
-        
-
     </div>
     )
 }
